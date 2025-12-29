@@ -23,14 +23,13 @@ Actions are triggered using the following method:
 ```lua
 Action:Fire(instance, actionName, data)
 instance: The object the action will affect
-
+```
 actionName: The name of the action to execute
 
 data: A table containing parameters for the action
 
 Basic Usage Example
-lua
-Copy code
+```lua
 local ObjectOrientedService = game:WaitForChild("ObjectOrientedService")
 local Action = ObjectOrientedService:WaitForChild("Action")
 
@@ -45,9 +44,10 @@ Action:Fire(
         alignGround = false
     }
 )
+```
 Playing Animations Example
-lua
-Copy code
+
+```lua
 Action:Fire(
     rig,
     "Animation",
@@ -57,3 +57,4 @@ Action:Fire(
         looped = true
     }
 )
+```
