@@ -52,7 +52,6 @@ function self:_playAnimation(target: Instance, ID: string, looped: boolean)
         Animator.Parent = tempController
     end
 
-    -- Detener tracks activos que no sean esta animación
     for i = #self.Tracks, 1, -1 do
         local t = self.Tracks[i]
         if t.IsPlaying and t.Animation.AnimationId ~= ID then
@@ -65,7 +64,6 @@ function self:_playAnimation(target: Instance, ID: string, looped: boolean)
         end
     end
 
-    -- Revisar si ya hay un track con la misma animación
     for _, t in ipairs(self.Tracks) do
         if t.Animation.AnimationId == ID then
             return t
