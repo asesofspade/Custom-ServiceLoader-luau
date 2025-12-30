@@ -5,7 +5,21 @@ A modular, event-driven service loader for Roblox that centralizes actions on in
 This system uses a **ModuleLoader** to scan the folder containing APIs and passes them to **ServicesLoader**, which creates a global `CustomService` exposing two BindableEvents:
 
 - **ObjectOriented** → handles instance actions (animations, MoveTo, Tp, etc.)  
-- **DataStore** → handles data persistence operations (Create, Load, Save, GetValue, SetValue, FindValue)  
+- **DataStore** → handles data persistence operations (Create, Load, Save, GetValue, SetValue, FindValue)
+
+"HOW IT WORKS?"
+```lua
+-- Flow of how everything is connected
+ServerScript
+    │
+ModuleLoader → categorizes modules into ServerOnly / ClientOnly / Shared
+    │
+ServicesLoader:Create(cached_modules)
+    │
+Initializes each API in its corresponding handler
+    │
+Public APIs ready according to context (client or server)
+```
 
 ---
 
